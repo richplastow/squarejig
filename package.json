@@ -1,0 +1,25 @@
+{
+  "name": "squarejig",
+  "version": "0.0.1",
+  "description": "A UI layout of dancing squares, based on Vue components",
+  "main": "Squarejig.vue",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richplastow/squarejig.git"
+  },
+  "keywords": [
+    "Vue",
+    "Layout",
+    "UI",
+    "square"
+  ],
+  "author": "Rich Plastow <rich@richplastow.com> (http://richplastow.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richplastow/squarejig/issues"
+  },
+  "homepage": "https://github.com/richplastow/squarejig#readme"
+}
