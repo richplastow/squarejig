@@ -1,5 +1,5 @@
 <template>
-<div class="squarejig">{{ vue_works }}</div>
+<div class="squarejig">Working? {{ vue_works }}</div>
 </template>
 
 <script>

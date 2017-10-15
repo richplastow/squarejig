@@ -1,26 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Squarejig Example 1</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="A basic minimal Squarejig setup">
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<meta charset="utf-8">
+<title>Squarejig Example 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A basic minimal Squarejig setup">
+
+<link type="text/css" href="../dist/squarejig.css" rel="stylesheet"></script>
+
 </head>
 <body>
-  <h1>Squarejig Example 1</h1>
-  <h3>A basic minimal Squarejig setup</h3>
-  <div id="example">
-    <squarejig></squarejig>
-  </div>
 
-  <link type="text/css" href="../dist/squarejig.css" rel="stylesheet"></script>
-  <script src="../dist/squarejig.js"></script>
-  <script>!function () {
-    new Vue({
-        el: '#example'
-    })
-    console.log('Example 1 ok');
-  }()</script>
+<!-- Polyfill CustomEvent for IE9+                    richplastow.com/w4/#a4 -->
+<script>!function(W,C,P){/^f/.test(typeof W[C])?0:(W[C]=function(e,p,_){p=p||{}
+_=document.createEvent(C);_.initCustomEvent(e,!!p.bubbles,!!p.cancelable,
+p.detail);return _},W[C][P]=Event[P])}(this,'CustomEvent','prototype')</script>
+
+<!-- Switch between Vue and Moon libraries -->
+<select style="float:right">
+<option value="https://cdn.jsdelivr.net/npm/vue">Vue</option>
+<option id="moon-opt" value="https://unpkg.com/moonjs">Moon</option>
+</select>
+<script>!function (d) {
+  var m = d.cookie.match(/vuesrc=([^&]+)/)
+    , vuesrc = m ? m[1] : 'https://cdn.jsdelivr.net/npm/vue'
+  if ('https://unpkg.com/moonjs' === vuesrc)
+      d.querySelector('select').selectedIndex = 1
+  d.querySelector('select').addEventListener('change', function () {
+      d.cookie = 'vuesrc=' + this.options[this.selectedIndex].value
+      location.reload()
+  })
+  function load (src, cb) {
+     var s = d.createElement('script')
+     s.addEventListener('load', cb)
+     s.setAttribute('src', src)
+     d.querySelector('body').appendChild(s)
+  }
+  load(vuesrc, function () {
+      if (! window.Vue && window.Moon) window.Vue = window.Moon
+      load('../dist/squarejig.js', function () {
+          window.dispatchEvent( new CustomEvent('vue-ready') )
+      })
+  })
+}(document)</script>
+
+
+<h1>Squarejig Example 1</h1>
+<h3>A basic minimal Squarejig setup</h3>
+<div id="example">
+<squarejig></squarejig>
+</div>
+
+<script>window.addEventListener('vue-ready', function () {
+  new Vue({
+      el: '#example'
+  })
+  console.log('Example 1 ok');
+})
+</script>
+
 </body>
 </html>

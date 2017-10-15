@@ -1,7 +1,7 @@
 #Squarejig
 
 ```pug
-div(class="squarejig") {{ vue_works }}
+div(class="squarejig") Working? {{ vue_works }}
 ```
 
     module.exports =
