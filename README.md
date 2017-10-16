@@ -1,8 +1,8 @@
 Squarejig
 =========
 
-+ __Last update:__  2017/10/15
-+ __Version:__      0.0.2
++ __Last update:__  2017/10/16
++ __Version:__      0.0.3
 
 A UI layout of dancing squares, based on Vue components
 -------------------------------------------------------
@@ -33,3 +33,4 @@ Changelog
 + Initial commit
 + 0.0.1    npm init; .gitignore; dist, src and support; minimal example
 + 0.0.2    Can switch between Vue and Moon in example-1.html
++ 0.0.3    First working version of build/litvue-make.js
